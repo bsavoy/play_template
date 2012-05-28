@@ -1,5 +1,7 @@
 logs
+modules
 project/project
 project/target
 target
 tmp
+war
