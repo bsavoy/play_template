@@ -4,6 +4,8 @@ Create database:
 	bees db:create -u DB_USER -p DB_PASSWORD DBNAME
 
 Change in application.conf:
+(DB_HOST can be found on the cloudbees webpage for your database as "server:")
+
 	# CloudBees MySQL Database
 	db.url=jdbc:mysql://DB_HOST/DBNAME
 	db.driver=com.mysql.jdbc.Driver
