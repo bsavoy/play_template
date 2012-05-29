@@ -9,12 +9,10 @@ import play.db.jpa.*;
 public class Item extends Model {
  
     public String name;
-    public int code;
-    public int quantity;
+    public String comment;
     
-    public Item(String name, int code, int quantity) {
+    public Item(String name, String comment) {
         this.name = name;
-        this.code = code;
-        this.quantity = quantity;
+        this.comment = comment;
     }
 }

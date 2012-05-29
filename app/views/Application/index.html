@@ -1,13 +1,31 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
+#{form @Application.addItem()}
+<div class = "input">
+	<p>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" />
+        <label for="id">Comments: </label>
+        <input type="text" name="id" id="id" />
+    </p>
+</div>
+#{/form}
+
 <table class = "item_table">
 	<div class = "item_properties">
-		<tr><td>Code</td><td>Name</td><td>Quantity</td></tr>
+		<tr><td>Name</td><td>Comment</td></tr>
 	</div>
-	#{list items:allItems, as:'item'}
-    <div class="item">
- 		<tr><td>${item.code}</td><td>${item.name}</td><td>${item.quantity}</td></tr>
-    </div>
-	#{/list}
+	#{if allItems}
+		#{list items:allItems, as:'item'}
+    		<div class="item">
+ 				<tr><td>${item.name}</td><td>${item.comment}</td></tr>
+    		</div>
+		#{/list}
+	#{/if}
+	#{else}
+		<div class = "error">
+    		<tr>There is currently nothing to see here.</tr>
+    	</div>
+	#{/else}
 </table>
