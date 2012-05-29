@@ -3,10 +3,10 @@ Change before use:
 in application.conf:
 
 	# CloudBees MySQL Database
-	db.url=jdbc:mysql://DB_HOST/db_name
+	db.url=jdbc:mysql://DB_HOST/DBNAME
 	db.driver=com.mysql.jdbc.Driver
-	db.user=username
-	db.pass=password
+	db.user=DB_USER
+	db.pass=DB_PASSWORD
 
 Do before use:
 
