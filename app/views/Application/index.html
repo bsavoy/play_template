@@ -7,7 +7,18 @@
         <label for="name">Name: </label>
         <input type="text" name="name" id="name" />
         <label for="id">Comments: </label>
-        <input type="text" name="id" id="id" />
+        <input type="text" name="comment" id="comment" />
+        <input type="submit" value="Add new item" />
+    </p>
+</div>
+#{/form}
+
+#{form @Application.removeItem()}
+<div class = "remove">
+	<p>
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" />
+        <input type="submit" value="Remove item" />
     </p>
 </div>
 #{/form}
@@ -16,16 +27,9 @@
 	<div class = "item_properties">
 		<tr><td>Name</td><td>Comment</td></tr>
 	</div>
-	#{if allItems}
-		#{list items:allItems, as:'item'}
-    		<div class="item">
- 				<tr><td>${item.name}</td><td>${item.comment}</td></tr>
-    		</div>
-		#{/list}
-	#{/if}
-	#{else}
-		<div class = "error">
-    		<tr>There is currently nothing to see here.</tr>
+	#{list items:allItems, as:'item'}
+    	<div class="item">
+ 			<tr><td>${item.name}</td><td>${item.comment}</td></tr>
     	</div>
-	#{/else}
+	#{/list}
 </table>

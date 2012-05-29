@@ -18,4 +18,10 @@ public class Application extends Controller {
     	new Item(name, comment).save();
     	index();
     }
+
+    public static void removeItem(String name) {
+    	Item item = Item.find("byName", name).first();
+    	item.delete();
+    	index();
+    }
 }
