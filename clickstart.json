@@ -1,0 +1,37 @@
+{
+    "id": "play-template",
+    "name": "Play 1.2 Implementation",
+    "source": "git://github.com/bsavoy/play_template.git",
+    "runtime": {
+        "type": "jboss"
+    },
+    "databases": [
+        {
+            "type": "mysql",
+            "alias": "MyDB"
+        }
+    ],
+    "build-with-jenkins": {
+        "template": {
+            "type": "play",
+            "options": {
+                "build-steps": [
+                    {
+                        "type": "play"
+                        "action": "war -o ../tmp/myapp --zip"
+                    }
+                    {
+                        "type": "shell"
+                        "action": "cp -f ../tmp/myapp.war ./myapp.war"
+                    }
+                    {
+                        "type": "shell"
+                        "action": "rm -r ../tmp"
+                    }
+                ]
+                "archive": "myapp.war"
+                "deploy": "myapp.war"
+            }
+        }
+    }
+}
