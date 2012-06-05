@@ -8,7 +8,7 @@
     "databases": [
         {
             "type": "mysql",
-            "alias": "MyDB"
+            "alias": "PlayDB"
         }
     ],
     "build-with-jenkins": {
@@ -18,19 +18,18 @@
                 "build-steps": [
                     {
                         "type": "play"
-                        "action": "war -o ../tmp/myapp --zip"
+                        "action": "war -o ../tmp/play --zip"
                     }
                     {
                         "type": "shell"
-                        "action": "cp -f ../tmp/myapp.war ./myapp.war"
+                        "action": "cp ../tmp/play.war ./play.war"
                     }
                     {
                         "type": "shell"
                         "action": "rm -r ../tmp"
                     }
                 ]
-                "archive": "myapp.war"
-                "deploy": "myapp.war"
+                "deploy": "play.war"
             }
         }
     }
