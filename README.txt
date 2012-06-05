@@ -10,9 +10,12 @@ Add playframework-plugin to your Jenkins plugins
 
 Create a new software project in Jenkins, changing the following:
 	- Add this git repository (or yours with this code) on Jenkins
-	- In build, Add build step -> Play with:
-		war -o ../tmp/APP_NAME --zip --exclude jenkins
+	- In build, Add build step -> Execute shell with:
+		rm -r jenkins
+	- Add build step -> Play with:
+		war -o ../tmp/APP_NAME --zip
 	- Add build step -> Execute shell with:
+		mkdir jenkins
 		cp ../tmp/APP_NAME.war jenkins/APP_NAME.war
 	- Also check "Deploy to CloudBees" with those parameters:
 		CloudBees Site: USERNAME

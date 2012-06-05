@@ -16,16 +16,24 @@
             "type": "play",
             "options": {
                 "build-steps": [
+		    {
+                        "type": "shell"
+                        "action": "rm -r jenkins"
+                    }
                     {
                         "type": "play"
-                        "action": "war -o ../tmp/play --zip --exclude play.war"
+                        "action": "war -o ../tmp/play --zip"
                     }
                     {
                         "type": "shell"
-                        "action": "cp ../tmp/play.war ./play.war"
+                        "action": "mkdir jenkins"
+                    }
+		    {
+                        "type": "shell"
+                        "action": "cp ../tmp/play.war jenkins/play.war"
                     }
                 ]
-                "deploy": "play.war"
+                "deploy": "jenkins/play.war"
             }
         }
     }
